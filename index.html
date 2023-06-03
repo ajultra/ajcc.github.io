@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ماشین حساب</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #E6EECC;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			color: #2F4F2F;
+			text-align: center;
+			margin-top: 50px;
+		}
+		#calculator {
+			margin: 0 auto;
+			width: 90%;
+			max-width: 500px;
+			padding: 10px;
+			background-color: #A2D9CE;
+			border: 1px solid #2F4F2F;
+			border-radius: 10px;
+			box-shadow: 5px 5px 5px #888888;
+			text-align: center;
+		}
+		table {
+			margin: 0 auto;
+			width: 100%;
+		}
+		td {
+			padding: 5px;
+			background-color: #E6EECC;
+			border: 1px solid #2F4F2F;
+			border-radius: 5px;
+			text-align: center;
+		}
+		input[type="button"] {
+			width: 50px;
+			height: 50px;
+			background-color: #2F4F2F;
+			color: #E6EECC;
+			border: none;
+			border-radius: 5px;
+			font-size: 18px;
+			margin: 2px;
+			cursor: pointer;
+		}
+		input[type="button"]:active {
+			background-color: #E6EECC;
+			color: #2F4F2F;
+		}
+		input[type="text"] {
+			width: 90%;
+			height: 50px;
+			font-size: 24px;
+			text-align: right;
+			border: none;
+			border-radius: 5px;
+			padding-right: 10px;
+			margin-bottom: 5px;
+			background-color: #E6EECC;
+			color: #2F4F2F;
+			box-shadow: 2px 2px 2px #888888;
+			outline: none;
+		}
+		input[type="text"]:focus {
+			box-shadow: 5px 5px 5px #888888;
+		}
+	</style>
+</head>
+<body>
+	<h1>ماشین حساب</h1>
+	<div id="calculator">
+		<input type="text" id="display" readonly>
+		<table>
+			<tr>
+				<td><input type="button" value="(" onclick="addToDisplay('(')"></td>
+				<td><input type="button" value=")" onclick="addToDisplay(')')"></td>
+				<td><input type="button" value="%" onclick="addToDisplay('%')"></td>
+				<td><input type="button" value="C" onclick="clearDisplay()"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="7" onclick="addToDisplay('7')"></td>
+				<td><input type="button" value="8" onclick="addToDisplay('8')"></td>
+				<td><input type="button" value="9" onclick="addToDisplay('9')"></td>
+				<td><input type="button" value="/" onclick="addToDisplay('/')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="4" onclick="addToDisplay('4')"></td>
+				<td><input type="button" value="5" onclick="addToDisplay('5')"></td>
+				<td><input type="button" value="6" onclick="addToDisplay('6')"></td>
+				<td><input type="button" value="*" onclick="addToDisplay('*')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="1" onclick="addToDisplay('1')"></td>
+				<td><input type="button" value="2" onclick="addToDisplay('2')"></td>
+				<td><input type="button" value="3" onclick="addToDisplay('3')"></td>
+				<td><input type="button" value="-" onclick="addToDisplay('-')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="0" onclick="addToDisplay('0')"></td>
+				<td><input type="button" value="." onclick="addToDisplay('.')"></td>
+				<td><input type="button" value="=" onclick="calculate()"></td>
+				<td><input type="button" value="+" onclick="addToDisplay('+')"></td>
+			</tr>
+		</table>
+	</div>
+
+	<script>
+		function addToDisplay(value) {
+			document.getElementById("display").value += value;
+		}
+
+		function clearDisplay() {
+			document.getElementById("display").value = "";
+		}
+
+		function calculate() {
+			var expression = document.getElementById("display").value;
+			var result = eval(expression);
+			document.getElementById("display").value = result;
+		}
+	</script>
+</body>
+</html>
